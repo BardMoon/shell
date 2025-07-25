@@ -50,7 +50,8 @@
       hyprland
       coreutils
       findutils
-      file
+      file  
+      kirigami
     ]
     ++ lib.optional withCli caelestia-cli;
 
@@ -63,9 +64,11 @@ in
     version = "${rev}";
     src = ./.;
 
-    nativeBuildInputs = [gcc makeWrapper];
+    nativeBuildInputs = [gcc makeWrapper wrapQtAppsHook];
     buildInputs = [quickshell aubio pipewire];
     propagatedBuildInputs = runtimeDeps;
+
+    dontWrapQtApps = false;
 
     buildPhase = ''
       mkdir -p bin
