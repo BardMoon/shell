@@ -223,6 +223,9 @@ programs.caelestia = {
     };
     paths.wallpaperDir = "~/Images";
   };
+  extraEnvironment = [
+    "QT_QPA_PLATFORMTHEME=gtk3" # Some icon issues might be resolved.
+  ];
   cli = {
     enable = true; # Also add caelestia-cli to path
     settings = {
