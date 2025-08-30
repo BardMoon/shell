@@ -46,6 +46,14 @@ in {
       extraEnvironment = [
         "QT_QPA_PLATFORMTHEME=gtk3" # Some icon issues might be resolved.
       ];
+      extraEnvironment = mkOption {
+        type = types.listOf types.str;
+        description = "Extra Environment variables to pass to the Caelestia shell systemd service.";
+        default = [ ];
+        example = [
+          "QT_QPA_PLATFORMTHEME=gtk3"
+        ];
+      };
       cli = {
         enable = mkEnableOption "Enable Caelestia CLI";
         package = mkOption {
