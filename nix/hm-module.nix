@@ -43,6 +43,9 @@ in {
         default = "";
         description = "Caelestia shell extra configs written to shell.json";
       };
+      extraEnvironment = [
+        "QT_QPA_PLATFORMTHEME=gtk3" # Some icon issues might be resolved.
+      ];
       cli = {
         enable = mkEnableOption "Enable Caelestia CLI";
         package = mkOption {
@@ -88,6 +91,7 @@ in {
           Environment = [
             "QT_QPA_PLATFORM=wayland"
           ];
+          ++ cfg.extraEnvironment;
 
           Slice = "session.slice";
         };
