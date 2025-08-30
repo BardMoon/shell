@@ -43,9 +43,6 @@ in {
         default = "";
         description = "Caelestia shell extra configs written to shell.json";
       };
-      extraEnvironment = [
-        "QT_QPA_PLATFORMTHEME=gtk3" # Some icon issues might be resolved.
-      ];
       extraEnvironment = mkOption {
         type = types.listOf types.str;
         description = "Extra Environment variables to pass to the Caelestia shell systemd service.";
